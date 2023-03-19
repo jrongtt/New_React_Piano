@@ -1,0 +1,44 @@
+:root {
+    --col: #00d8ff;
+    --width_black: 10px;
+    --width: 40px;  
+    --blur: blur(15px);
+  }
+  
+  
+  .key {
+    display:inline-block;
+      background-color: white;
+      height: calc(var(--width) * 3.5);
+      width: var(--width);
+      border: 1px solid black;
+    }
+    
+    .key.flat {
+      /* position: relative; */
+      --width: var(--width_black);
+      
+      background-color:black;
+      margin-left: -12px;
+      margin-right: -12px;
+  
+      height: 70px;
+      width: 20px;
+      z-index: 2;
+      border-radius: 6px;
+    }
+    
+    .key.pressed, .key.flat.pressed {
+      background-color: var(--col);
+      box-shadow: 0px -40px 25px -10px var(--col);
+      
+    }
+    
+    .key-text {
+      position: relative;
+      color: black;
+      font-weight: 600;
+      font-size: 0;
+      margin-top: 0;
+      pointer-events: none;
+    }
