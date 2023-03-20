@@ -1,6 +1,6 @@
 :root {
     --col: #00d8ff;
-    --width_black: 10px;
+    --width_black: 40px;
     --width: 40px;  
     --blur: blur(15px);
   }
@@ -15,16 +15,17 @@
     }
     
     .key.flat {
-      /* position: relative; */
+       position: relative; 
       --width: var(--width_black);
       
+      display:inline-block;
       background-color:black;
       margin-left: -12px;
       margin-right: -12px;
   
       height: 70px;
-      width: 20px;
-      z-index: 2;
+      width: 15px;
+      z-index: 3;
       border-radius: 6px;
     }
     

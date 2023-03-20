@@ -1,12 +1,14 @@
 import _ from 'lodash';
 import React from 'react';
-
+import { useState } from 'react';
+import ReactDOM from 'react-dom';
 import './Piano.css';
 import { Key } from './Key.js'
 import {
   NOTES,
   KEY_TO_NOTE,
 } from '../global/constants';
+import NoteAnimation from './NoteAnimation';
 
 class Piano extends React.Component {
   constructor(props) {
@@ -17,6 +19,17 @@ class Piano extends React.Component {
   }
 
   playNote = (note) => {
+
+    // const audio = new Audio(`audio/${note}.mp3`);
+    // audio.play();
+    // const noteEl = document.getElementById(note);
+    // noteEl.classList.add('active');
+    // setTimeout(() => {
+    //   noteEl.classList.remove('active');
+    // }, 300);
+  
+    // ReactDOM.render(<NoteAnimation />, document.getElementById('note-animation-container'));
+
     if (!_.isEmpty(note)) {
       const noteAudio = new Audio(document.getElementById(note).src);
       noteAudio.volume = 0.1;
@@ -35,7 +48,6 @@ class Piano extends React.Component {
     }
     if(event.srcElement.textContent.length <= 3) {
       var note = event.srcElement.textContent.toLowerCase()
-      console.log(event.srcElement);
       this.playNote(note);
     }
   }
@@ -88,6 +100,7 @@ class Piano extends React.Component {
           key={index}
           note={note}
           pressedNotes={this.state.pressedNotes}
+          isPressed={this.state.pressedNotes.includes(note)}
         />
       );
     });
@@ -111,6 +124,7 @@ class Piano extends React.Component {
         <div>
           {audioFiles}
         </div>
+
       </div>
     );
   }

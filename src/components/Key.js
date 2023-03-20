@@ -3,6 +3,7 @@ import React from 'react';
 
 import './Key.css';
 import { NOTE_TO_KEY } from '../global/constants';
+import NoteAnimation from './NoteAnimation';
 
 class Key extends React.Component {
   noteIsFlat = (note) => {
@@ -14,6 +15,8 @@ class Key extends React.Component {
   }
 
   render() {
+
+
     let keyClassName = "key";
     const noteIsFlat = this.noteIsFlat(this.props.note);
     const keyIsPressed = this.keyIsPressed(this.props.note, this.props.pressedNotes);
@@ -22,14 +25,23 @@ class Key extends React.Component {
     }
     if (keyIsPressed) {
       keyClassName += " pressed";
+      console.log(this.props)
     }
+
 
     let key;
 
     key = (
-      <div className={keyClassName}>
-        <div className="key-text">{this.props.note.toUpperCase()}</div>
-      </div>
+      <div>
+        <div>
+         <NoteAnimation />
+        </div> 
+        <div className={keyClassName}>
+          <div className="key-text">{this.props.note.toUpperCase()}</div>
+        </div>
+        
+   
+    </div>
     );
 
     // if (noteIsFlat) {

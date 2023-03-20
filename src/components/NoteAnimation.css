@@ -1,0 +1,21 @@
+
+.note-animation {
+    position: absolute;
+    /* top: 20%; */
+    width: 20px;
+    height: 50px;
+    border-radius: 10%;
+    background-color: red;
+    transform: translateX(-50%);
+    animation: note-rise 15s ease-out forwards;
+  }
+  
+@keyframes note-rise {
+    from {
+      top: 100%;
+    }
+    to {
+      top: -200%;
+      opacity: 0;
+    }
+  }
